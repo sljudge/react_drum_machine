@@ -15,8 +15,11 @@ class Pad extends React.Component{
 
   handleDrum(){
     console.log('playing')
-    const sound = document.getElementById(this.props.drum.key);
+    const sound = document.getElementById(this.props.drum.key); // use ref
+    const sound = new Audio([]) // js object
     sound.play();
+
+    //need to use lifecycle
   }
 
   render(){
