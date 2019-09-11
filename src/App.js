@@ -10,23 +10,44 @@ class Pad extends React.Component{
     this.state = {
       play: false
     }
-    this.handleDrum = this.handleDrum.bind(this)
+    this.handleClick = this.handleClick.bind(this)
+    this.handleKey = this.handleKey.bind(this)
+    this.key = React.createRef();
   }
 
-  handleDrum(){
-    console.log('playing')
-    const sound = document.getElementById(this.props.drum.key); // use ref
-    const sound = new Audio([]) // js object
-    sound.play();
+  componentDidMount(){
+    console.log('mounted')
+    console.log(this.key)
+    console.log(this.props.drum)
+    this.setState({
+      sound: new Audio('https://s3.amazonaws.com/freecodecamp/drums/'+this.props.drum.source+'.mp3')
+    })
+  }
 
-    //need to use lifecycle
+  componentDidUpdate(){
+    console.log('updated')
+  }
+
+  handleKey = (event) => {
+    console.log('playing')
+    console.log('key pressed: ', event.key)
+    console.log(this.props.drum)
+    if(event.key === this.props.drum.key){
+      console.log(this.state.sound)
+      this.state.sound.play()
+    }
+  }
+
+  handleClick(){
+    console.log(this.state.sound)
+    console.log(this.props.drum)
+    this.state.sound.play()
   }
 
   render(){
     return(
       <div className='outer-drum'>
-        <audio id={this.props.drum.key} src={'/drums/'+this.props.drum.source+'.wav'}></audio>
-        <Button className='drum' color='secondary' onClick={() => this.handleDrum()}></Button>
+        <Button className='drum' color='secondary' ref={this.key} onClick={() => this.handleClick()} onKeyPress={this.handleKey}></Button>
       </div>
     )
   }

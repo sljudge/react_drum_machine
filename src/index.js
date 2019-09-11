@@ -5,15 +5,15 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 const data = [
-  {key:'q', keycode:81, source: 'kick1'},
-  {key:'w', keycode:87, source: 'break1'},
-  {key:'e', keycode:69, source: 'kick2'},
-  {key:'a', keycode:65, source: 'snare1'},
-  {key:'s', keycode:83, source: 'hat1'},
-  {key:'d', keycode:68, source: 'perc1'},
-  {key:'z', keycode:90, source: 'snare2'},
-  {key:'x', keycode:88, source: 'hat2'},
-  {key:'c', keycode:67, source: 'perc2'},
+  {key:'q', keycode:81, source: 'Dsc_Oh'},
+  {key:'w', keycode:87, source: 'Cev_H2'},
+  {key:'e', keycode:69, source: 'Kick_n_Hat'},
+  {key:'a', keycode:65, source: 'punchy_kick_1'},
+  {key:'s', keycode:83, source: 'RP4_KICK_1'},
+  {key:'d', keycode:68, source: 'Brk_Snr'},
+  {key:'z', keycode:90, source: 'side_stick_1'},
+  {key:'x', keycode:88, source: 'Heater-6'},
+  {key:'c', keycode:67, source: 'Give_us_a_light'},
 ]
 
 ReactDOM.render(<App drums={data} />, document.getElementById('root'));
